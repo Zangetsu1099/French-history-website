@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-en="About Us — French History" data-fr="À propos — Histoire de France">About Us — French History</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ======================================================
+       GLOBAL
+    ====================================================== */
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f8f5e9;
+      font-family: 'EB Garamond', serif;
+      color: #2e2a26;
+    }
+    * { box-sizing: border-box; }
+
+    /* ======================================================
+       NAVBAR
+    ====================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: #2e2a26;
+      color: #fff;
+      padding: 15px 0;
+      z-index: 200;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.35);
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 25px;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      transition: .3s;
+    }
+    .nav-links a:hover,
+    .nav-links .active {
+      color: #e0b973;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+    }
+
+    /* ======================================================
+       LANGUAGE TOGGLE
+    ====================================================== */
+    #lang-toggle {
+      position: fixed;
+      top: 20px;
+      right: 25px;
+      z-index: 300;
+      background: #b85c38;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-family: 'Playfair Display', serif;
+      transition: .3s;
+    }
+    #lang-toggle:hover {
+      background: #e0b973;
+    }
+
+    /* ======================================================
+       ABOUT PAGE CONTENT
+    ====================================================== */
+    .about-section {
+      max-width: 900px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .team-list li {
+      margin: 8px 0;
+      font-size: 20px;
+    }
+
+    /* ======================================================
+       ADVANCED TIMELINE CSS
+    ====================================================== */
+    .v-timeline {
+      position: relative;
+      margin: 60px auto;
+      padding-left: 30px;
+    }
+
+    .v-timeline::before {
+      content: "";
+      position: absolute;
+      left: 30px;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(#bfbfbf, #8e8e8e);
+      border-radius: 2px;
+      transition: background 1.2s ease, box-shadow 1.2s ease;
+    }
+
+    .v-timeline.glow::before {
+      background: linear-gradient(#e0b973, #c79733);
+      box-shadow: 0 0 18px #e0b973;
+    }
+
+    .v-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin: 40px 0;
+      opacity: 0;
+      transform: translateY(60px);
+      filter: blur(6px);
+      transition: 0.9s ease;
+    }
+
+    .v-dot {
+      width: 18px;
+      height: 18px;
+      background: #e0b973;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #e0b973;
+      transform: scale(0.6);
+      transition: 0.6s ease;
+      flex-shrink: 0;
+    }
+
+    .v-content {
+      background: #fff;
+      padding: 20px 25px;
+      border-radius: 12px;
+      border: 1px solid #e4d8c1;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+      transition: 0.6s ease;
+    }
+
+    /* show animation */
+    .v-item.show {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+    .v-item.show .v-dot {
+      transform: scale(1);
+      animation: pulse 1.2s ease-out;
+    }
+
+    /* alternating directions */
+    .v-item:nth-child(odd) .v-content {
+      transform: translateX(-60px);
+    }
+    .v-item:nth-child(even) .v-content {
+      transform: translateX(60px);
+    }
+    .v-item.show:nth-child(odd) .v-content,
+    .v-item.show:nth-child(even) .v-content {
+      transform: translateX(0);
+    }
+
+    .v-content:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.6); }
+      60% { transform: scale(1.25); }
+      100% { transform: scale(1); }
+    }
+
+    @media (max-width: 600px) {
+      .v-timeline { padding-left: 15px; }
+      .v-timeline::before { left: 20px; }
+      .v-content { padding: 18px; }
+    }
+
+    /* ======================================================
+       FOOTER
+    ====================================================== */
+    footer {
+      background: #2e2a26;
+      padding: 30px;
+      text-align: center;
+      color: white;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- LANG BUTTON -->
+<button id="lang-toggle">🇬🇧 English</button>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-container">
+    <h2 class="logo" data-en="French History" data-fr="Histoire de France">French History</h2>
+
+    <ul class="nav-links">
+      <li><a href="index.html" data-en="Home" data-fr="Accueil">Home</a></li>
+      <li><a href="about.html" class="active" data-en="About Us" data-fr="À propos">About Us</a></li>
+      <li><a href="index.html#topics" data-en="Topics" data-fr="Sujets">Topics</a></li>
+      <li><a href="quiz.html" data-en="Quiz" data-fr="Quiz">Quiz</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="about-section">
+
+  <h1 data-en="About Us" data-fr="À propos de nous">About Us</h1>
+
+  <p data-en="Welcome to the French History Project — an educational website built by students to make learning French history interactive and visually engaging."
+     data-fr="Bienvenue sur le projet Histoire de France — un site éducatif créé pour rendre l’apprentissage de l’histoire française interactif et visuellement attrayant."></p>
+
+  <p data-en="Our mission is to present major historical eras using elegant design and interactive storytelling."
+     data-fr="Notre mission est de présenter les grandes époques historiques grâce à un design élégant et une narration interactive."></p>
+
+  <!-- TEAM -->
+  <h2 data-en="Team Members" data-fr="Membres de l'équipe">Team Members</h2>
+
+  <ul class="team-list">
+    <li><strong>Mohit Kumar Mandal</strong> — <span data-en="Developer" data-fr="Développeur">Developer</span></li>
+    <li><strong>Khusboo Khatoon</strong> — <span data-en="Historical Research" data-fr="Recherche historique">Historical Research</span></li>
+    <li><strong>M.S Sanjana</strong> — <span data-en="Writer & Editor" data-fr="Rédaction & Édition">Writer & Editor</span></li>
+    <li><strong>Vinayak</strong> — <span data-en="Content Specialist" data-fr="Spécialiste du contenu">Content Specialist</span></li>
+    <li><strong>Aman Keshri</strong> — <span data-en="War History Research" data-fr="Recherche sur l'histoire militaire">War History Research</span></li>
+    <li><strong>Shine Nath</strong> — <span data-en="Modern France Research" data-fr="Recherche sur la France moderne">Modern France Research</span></li>
+  </ul>
+
+  <!-- TIMELINE -->
+  <h2 data-en="Our Project Timeline" data-fr="Chronologie de notre projet">Our Project Timeline</h2>
+
+  <div class="v-timeline">
+
+    <!-- Item 1 -->
+    <div class="v-item">
+      <div class="v-dot"></div>
+      <div class="v-content">
+        <h3 data-en="📜 Idea & Research" data-fr="📜 Idée & Recherche"></h3>
+        <p data-en="We began brainstorming based on the PBL list provided by Apurva Ma’am."
+           data-fr="Nous avons commencé le brainstorming à partir de la liste PBL fournie par Madame Apurva."></p>
+      </div>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="v-item">
+      <div class="v-dot"></div>
+      <div class="v-content">
+        <h3 data-en="💡 Design & Wireframe" data-fr="💡 Conception & Maquettage"></h3>
+        <p data-en="We planned a layout inspired by museums and historical manuscripts."
+           data-fr="Nous avons planifié une mise en page inspirée des musées et des anciens manuscrits."></p>
+      </div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="v-item">
+      <div class="v-dot"></div>
+      <div class="v-content">
+        <h3 data-en="🧠 Content Writing" data-fr="🧠 Rédaction de contenu"></h3>
+        <p data-en="
+          1. Conquest of Gaul — Mohit<br>
+          2. Hundred Years War & Joan of Arc — Mohit<br>
+          3. Renaissance & Humanism — Khusboo<br>
+          4. Louis XIV — Sanjana<br>
+          5. Napoleon & Waterloo — Vinayak<br>
+          6. Colonisation & Decolonisation — Khusboo<br>
+          7. France in WW1 — Aman<br>
+          8. France in WW2 — Aman<br>
+          9. May 1968 Revolts — Shine"
+        data-fr="
+          1. Conquête de la Gaule — Mohit<br>
+          2. Guerre de Cent Ans & Jeanne d'Arc — Mohit<br>
+          3. Renaissance & Humanisme — Khusboo<br>
+          4. Louis XIV — Sanjana<br>
+          5. Napoléon & Waterloo — Vinayak<br>
+          6. Colonisation & Décolonisation — Khusboo<br>
+          7. France pendant la PGM — Aman<br>
+          8. France pendant la SGM — Aman<br>
+          9. Révoltes de mai 1968 — Shine"></p>
+      </div>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="v-item">
+      <div class="v-dot"></div>
+      <div class="v-content">
+        <h3 data-en="💻 Development" data-fr="💻 Développement"></h3>
+        <p data-en="We integrated custom images, timelines, animations, and effects."
+           data-fr="Nous avons intégré des images, des chronologies, des animations et des effets."></p>
+      </div>
+    </div>
+
+    <!-- Item 5 -->
+    <div class="v-item">
+      <div class="v-dot"></div>
+      <div class="v-content">
+        <h3 data-en="🚀 Presentation" data-fr="🚀 Présentation"></h3>
+        <p data-en="We presented our completed website as our PBL project."
+           data-fr="Nous avons présenté notre site web finalisé comme projet PBL."></p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Sources -->
+  <h2 data-en="Sources" data-fr="Sources">Sources</h2>
+  <ul>
+    <li><a href="https://www.bbc.co.uk/history" data-en="BBC History" data-fr="BBC Histoire">BBC History</a></li>
+    <li><a href="https://www.history.com" data-en="History.com" data-fr="History.com">History.com</a></li>
+    <li><a href="https://www.britannica.com" data-en="Encyclopaedia Britannica" data-fr="Encyclopédie Britannica">Encyclopaedia Britannica</a></li>
+    <li data-en="National Archives of France" data-fr="Archives nationales de France">National Archives of France</li>
+  </ul>
+
+</main>
+
+<footer>
+  <p>
+    <a href="index.html" style="color:#fff;text-decoration:underline;"
+       data-en="← Back to Home" data-fr="← Retour à l'accueil">
+       ← Back to Home
+    </a>
+  </p>
+</footer>
+
+<!-- ======================================================
+     LANGUAGE SCRIPT + TIMELINE INTERSECTION ANIMATION
+====================================================== -->
+<script>
+  /* LANGUAGE SWITCH */
+  const btn = document.getElementById("lang-toggle");
+  let currentLang = localStorage.getItem("lang") || "en";
+
+  function applyLang(lang) {
+    document.querySelectorAll("[data-en]").forEach(el => {
+      el.textContent = el.getAttribute(`data-${lang}`);
+    });
+    btn.textContent = lang === "en" ? "🇬🇧 English" : "🇫🇷 Français";
+    localStorage.setItem("lang", lang);
+    currentLang = lang;
+  }
+
+  btn.addEventListener("click", () => {
+    applyLang(currentLang === "en" ? "fr" : "en");
+  });
+
+  window.addEventListener("load", () => applyLang(currentLang));
+
+  /* TIMELINE ANIMATION */
+  const timeline = document.querySelector(".v-timeline");
+  const items = document.querySelectorAll(".v-item");
+
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("show");
+        timeline.classList.add("glow");
+      }
+    });
+  }, { threshold: 0.3 });
+
+  items.forEach(item => observer.observe(item));
+</script>
+
+</body>
+</html>
+
+
+

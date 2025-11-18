@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title data-en="France During World War I"
+            data-fr="La France pendant la Première Guerre mondiale">
+        France During World War I
+    </title>
+
+    <link rel="icon" type="image/jpg" href="image/logopbl.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* HERO */
+        .topic-hero {
+            position: relative;
+            height: 58vh;
+            background: url('image/ww1_hero.jpg') center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+        .topic-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+        }
+        .topic-hero h1 {
+            z-index: 2;
+            font-size: 48px;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            padding: 0 12px;
+        }
+
+        /* CONTENT GRID — SAME AS TOPIC A */
+        .topic-container {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .topic-section {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 40px;
+            margin-bottom: 80px;
+            align-items: start;
+        }
+        .topic-section img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .topic-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            color: #0f3460;
+            margin-bottom: 14px;
+        }
+        .topic-section p {
+            font-size: 19px;
+            font-family: 'EB Garamond', serif;
+            margin-bottom: 14px;
+            line-height: 1.65;
+        }
+
+        @media(max-width:768px) {
+            .topic-section {
+                grid-template-columns: 1fr;
+            }
+            .topic-hero h1 {
+                font-size: 32px;
+            }
+        }
+
+        /* NAVIGATION */
+        .bottom-nav {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .bottom-nav a {
+            color: #1a5e63;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .bottom-nav a:hover {
+            color: var(--accent);
+        }
+
+        #lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 25px;
+            z-index: 500;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- LANGUAGE TOGGLE -->
+<button id="lang-toggle">🇬🇧 English</button>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-container">
+        <h2 class="logo"
+            data-en="French History"
+            data-fr="Histoire de France">French History</h2>
+
+        <ul class="nav-links">
+            <li><a href="index.html" data-en="Home" data-fr="Accueil">Home</a></li>
+            <li><a href="topic_g.html" class="active"
+                    data-en="WW1"
+                    data-fr="Première Guerre mondiale">WW1</a></li>
+            <li><a href="index.html#topics" data-en="Topics" data-fr="Sujets">Topics</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="topic-hero">
+    <h1 data-en="France During World War I"
+        data-fr="La France pendant la Première Guerre mondiale">
+        France During World War I
+    </h1>
+</header>
+
+<!-- MAIN CONTENT -->
+<div class="topic-container">
+
+    <!-- OVERVIEW -->
+    <section class="topic-section">
+        <div>
+            <h2 data-en="Overview" data-fr="Aperçu">Overview</h2>
+
+            <p data-en="France was one of the main Allied powers during World War I (1914–1918). Much of the Western Front ran across northern France, where industrial warfare, trenches, and massive casualties defined the conflict."
+               data-fr="La France fut l’une des principales puissances alliées durant la Première Guerre mondiale (1914–1918). Une grande partie du front occidental traversait le nord de la France, marqué par la guerre industrielle, les tranchées et d’immenses pertes humaines.">
+            </p>
+        </div>
+        <img src="image/ww1_trenches.jpg" alt="French trenches in WW1">
+    </section>
+
+    <!-- TRENCH WARFARE -->
+    <section class="topic-section">
+        <div>
+            <h2 data-en="Trench Warfare" data-fr="La guerre des tranchées">Trench Warfare</h2>
+
+            <p data-en="Trenches were deep networks protecting soldiers from enemy fire. Life was extremely harsh—mud, rats, artillery bombardments and gas attacks made survival difficult. New technology turned battlefields into deadly stalemates."
+               data-fr="Les tranchées formaient de vastes réseaux protégeant les soldats. La vie y était extrêmement dure : boue, rats, bombardements d’artillerie et attaques au gaz rendaient la survie difficile. Les nouvelles technologies transformèrent les champs de bataille en impasses meurtrières.">
+            </p>
+        </div>
+        <img src="image/ww1_trench2.jpg" alt="Trench soldiers">
+    </section>
+
+    <!-- HOME FRONT -->
+    <section class="topic-section">
+        <div>
+            <h2 data-en="The Home Front" data-fr="L'arrière">The Home Front</h2>
+
+            <p data-en="Women worked in factories producing weapons; agriculture adapted to shortages; and the entire economy shifted toward war. Millions were mobilised, and families faced hardship, fear, and loss."
+               data-fr="Les femmes travaillent dans les usines d’armement ; l’agriculture s’adapte aux pénuries ; et toute l’économie se tourne vers l’effort de guerre. Des millions de personnes sont mobilisées et les familles subissent pertes, peur et difficultés.">
+            </p>
+        </div>
+        <img src="image/ww1_homefront.jpg" alt="French home front">
+    </section>
+
+    <!-- AFTERMATH -->
+    <section class="topic-section">
+        <div>
+            <h2 data-en="Aftermath" data-fr="Les conséquences">Aftermath</h2>
+
+            <p data-en="World War I ended in 1918 with the Armistice. France faced massive reconstruction, especially in the devastated north. The war shaped national memory and significantly influenced political change in the interwar years."
+               data-fr="La Première Guerre mondiale se termine en 1918 avec l’Armistice. La France doit reconstruire le nord du pays, ravagé par les combats. La guerre marque profondément la mémoire nationale et influence les changements politiques de l’entre-deux-guerres.">
+            </p>
+        </div>
+        <img src="image/ww1_ruins.jpg" alt="Ruins after WW1">
+    </section>
+
+</div>
+
+<!-- BOTTOM NAVIGATION -->
+<div class="bottom-nav">
+
+    <a href="topic_f.html"
+       data-en="← Previous: French Colonisation"
+       data-fr="← Précédent : Colonisation française">
+       ← Previous: French Colonisation
+    </a>
+
+    <a href="index.html"
+       data-en="Back to Home"
+       data-fr="Retour à l’accueil">
+       Back to Home
+    </a>
+
+    <a href="topic_h.html"
+       data-en="Next: France During WW2 →"
+       data-fr="Suivant : La France pendant la Seconde Guerre mondiale →">
+       Next: France During WW2 →
+    </a>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p data-en="© 2025 French History Project — Designed by You"
+       data-fr="© 2025 Projet d'histoire française — Conçu par vous">
+       © 2025 French History Project — Designed by You
+    </p>
+</footer>
+
+<!-- LANGUAGE SCRIPT -->
+<script>
+const btn = document.getElementById("lang-toggle");
+let currentLang = localStorage.getItem("lang") || "en";
+
+function applyLang(lang) {
+    document.querySelectorAll("[data-en]").forEach(el=>{
+        const txt = el.getAttribute(`data-${lang}`);
+        if(txt) el.textContent = txt;
+    });
+    btn.textContent = lang==="en" ? "🇬🇧 English" : "🇫🇷 Français";
+    localStorage.setItem("lang", lang);
+}
+
+btn.onclick = () => {
+    currentLang = currentLang === "en" ? "fr" : "en";
+    applyLang(currentLang);
+};
+
+applyLang(currentLang);
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-en="The Conquest of Gaul — Julius Caesar & Battle of Alesia"
+            data-fr="La Conquête de la Gaule — Jules César et la bataille d'Alésia">
+        The Conquest of Gaul — Julius Caesar & Battle of Alesia
+    </title>
+
+    <link rel="icon" type="image/jpg" href="image/logopbl.jpg" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        /* HERO */
+        .topic-hero {
+            position: relative;
+            height: 58vh;
+            background: url('image/gaul.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+        .topic-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+        }
+        .topic-hero h1 {
+            position: relative;
+            z-index: 2;
+            font-size: 52px;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* CONTENT GRID */
+        .topic-container {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .topic-section {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            margin-bottom: 80px;
+            align-items: start;
+        }
+
+        .topic-section img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .topic-section .text-block h2 {
+            font-size: 36px;
+            font-family: 'Playfair Display', serif;
+            color: #0f3460;
+        }
+
+        .topic-section .text-block p {
+            font-size: 19px;
+            line-height: 1.65;
+            margin-bottom: 14px;
+        }
+
+        @media(max-width: 768px) {
+            .topic-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* NEXT + BACK LINKS */
+        .bottom-nav {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bottom-nav a {
+            font-size: 20px;
+            color: #1a5e63;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .bottom-nav a:hover {
+            color: var(--accent);
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- LANGUAGE TOGGLE -->
+<button id="lang-toggle">🇬🇧 English</button>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-container">
+        <h2 class="logo" data-en="French History" data-fr="Histoire de France">French History</h2>
+        <ul class="nav-links">
+            <li><a href="index.html" data-en="Home" data-fr="Accueil">Home</a></li>
+            <li><a href="topic_a.html" class="active" data-en="Gaul" data-fr="Gaule">Gaul</a></li>
+            <li><a href="index.html#topics" data-en="Topics" data-fr="Sujets">Topics</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="topic-hero">
+    <h1 data-en="The Conquest of Gaul & The Battle of Alesia"
+        data-fr="La conquête de la Gaule et la bataille d'Alésia">
+        The Conquest of Gaul & The Battle of Alesia
+    </h1>
+</header>
+
+<!-- MAIN CONTENT -->
+<div class="topic-container">
+
+    <!-- INTRO -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="Introduction" data-fr="Introduction">Introduction</h2>
+
+            <p data-en="The conquest of Gaul, led by Julius Caesar between 58 and 50 BCE, was one of the most decisive campaigns in ancient history. It expanded Roman territory, increased Caesar’s wealth and power, and set the stage for dramatic political change in Rome."
+               data-fr="La conquête de la Gaule, menée par Jules César entre 58 et 50 av. J.-C., fut l'une des campagnes les plus décisives de l'Antiquité. Elle étendit le territoire romain, augmenta la richesse et le pouvoir de César, et prépara de profonds changements politiques à Rome.">
+            </p>
+
+            <p data-en="The campaign culminated in the famous Battle of Alesia in 52 BCE, where Caesar faced the united Gallic forces under Vercingetorix. This marked the turning point of the Gallic Wars."
+               data-fr="La campagne culmina avec la célèbre bataille d'Alésia en 52 av. J.-C., où César affronta les forces gauloises unies dirigées par Vercingétorix. Ce fut le tournant décisif de la guerre des Gaules.">
+            </p>
+        </div>
+        <img src="image/gaul_map.jpg" alt="Map of Gaul">
+    </section>
+
+    <!-- GALLIC TRIBES -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="The Gallic Tribes" data-fr="Les tribus gauloises">The Gallic Tribes</h2>
+
+            <p data-en="Gaul was home to dozens of Celtic tribes, each with its own identity, leaders, alliances, and conflicts. Some of the most powerful included the Arverni, Aedui, Sequani, and Helvetii."
+               data-fr="La Gaule abritait des dizaines de tribus celtes, chacune ayant sa propre identité, ses chefs, ses alliances et ses conflits. Parmi les plus puissantes figuraient les Arvernes, les Éduens, les Séquanes et les Helvètes.">
+            </p>
+
+            <p data-en="Although culturally similar, the tribes were politically divided. This lack of unity allowed Rome to conquer Gaul gradually, using diplomacy, intimidation, and military force."
+               data-fr="Bien que culturellement proches, les tribus étaient politiquement divisées. Ce manque d'unité permit à Rome de conquérir la Gaule progressivement grâce à la diplomatie, à l’intimidation et à la force militaire.">
+            </p>
+        </div>
+        <img src="image/gauls.jpg" alt="Gallic Warrior"  class="small-img" >
+
+    </section>
+
+    <!-- CAESAR MOTIVES -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="Caesar’s Motives" data-fr="Les motivations de César">Caesar’s Motives</h2>
+
+            <p data-en="Caesar sought more than military glory. He aimed to strengthen his political position in Rome, where rivals and critics challenged his authority."
+               data-fr="César recherchait plus que la gloire militaire. Il visait à renforcer sa position politique à Rome, où rivaux et opposants contestaient son autorité.">
+            </p>
+
+            <p data-en="Success in Gaul gave him loyal legions, immense personal wealth, and popularity among Roman citizens—key factors that helped him rise to unmatched power."
+               data-fr="Le succès en Gaule lui apporta des légions loyales, une immense richesse personnelle et une grande popularité auprès des citoyens romains — des éléments clés qui lui permirent d’atteindre un pouvoir inégalé.">
+            </p>
+        </div>
+        <img src="image/caesar.jpg" alt="Caesar Statue">
+    </section>
+
+    <!-- ALESIA -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="The Battle of Alesia (52 BCE)" data-fr="La bataille d'Alésia (52 av. J.-C.)">The Battle of Alesia (52 BCE)</h2>
+
+            <p data-en="Vercingetorix led a final united Gallic uprising against Rome. He fortified the hilltop city of Alesia, where Caesar surrounded him."
+               data-fr="Vercingétorix mena une dernière révolte gauloise unie contre Rome. Il fortifia la ville perchée d'Alésia, où César l’encercla.">
+            </p>
+
+            <p data-en="Caesar constructed two enormous walls—one to trap the Gauls inside and one to block reinforcements. This engineering masterpiece is still studied today."
+               data-fr="César construisit deux immenses lignes de fortifications — l’une pour piéger les Gaulois et l’autre pour bloquer les renforts. Ce chef-d’œuvre d’ingénierie est encore étudié aujourd’hui.">
+            </p>
+
+            <p data-en="After a fierce multi-directional assault, the Gallic reinforcements failed, and Vercingetorix surrendered. Gaul belonged to Rome."
+               data-fr="Après un assaut féroce mené de toutes parts, les renforts gaulois échouèrent et Vercingétorix se rendit. La Gaule appartenait désormais à Rome.">
+            </p>
+        </div>
+        <img src="image/alesia.jpg" alt="Battle of Alesia">
+    </section>
+
+    <!-- HISTORICAL IMPACT -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="Historical Impact" data-fr="Impact historique">Historical Impact</h2>
+
+            <p data-en="Roman laws, architecture, roads, and Latin language reshaped Gaul and laid the cultural foundations of modern France."
+               data-fr="Les lois romaines, l’architecture, les routes et la langue latine transformèrent la Gaule et établirent les bases culturelles de la France moderne.">
+            </p>
+
+            <p data-en="Caesar’s victory also increased his influence so much that it eventually led to the fall of the Roman Republic and the rise of the Empire."
+               data-fr="La victoire de César renforça tellement son influence qu’elle conduisit finalement à la chute de la République romaine et à l’ascension de l’Empire.">
+            </p>
+        </div>
+        <img src="image/gaul.jpg" alt="Roman Influence" class = "small-img">
+    </section>
+
+</div>
+
+<!-- NEXT + BACK NAVIGATION -->
+<div class="bottom-nav">
+    <a href="index.html" data-en="← Back to Home" data-fr="← Retour à l’accueil">← Back to Home</a>
+    <a href="topic_b.html" data-en="Next Topic → The 100 Years War & Joan of Arc"
+       data-fr="Sujet suivant → La guerre de Cent Ans & Jeanne d’Arc">
+       Next Topic →
+    </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p data-en="© 2025 French History Project — Designed by Zangetsu"
+       data-fr="© 2025 Projet d'histoire française — Conçu par Zangetsu">
+       © 2025 French History Project — Designed by Zangetsu
+    </p>
+    
+</footer>
+
+<!-- LANGUAGE TOGGLE SCRIPT -->
+<script>
+const btn = document.getElementById("lang-toggle");
+let currentLang = localStorage.getItem("lang") || "en";
+
+function applyLang(lang) {
+    document.querySelectorAll("[data-en]").forEach(el => {
+        const text = el.getAttribute(`data-${lang}`);
+        if (text) el.textContent = text;
+    });
+    btn.textContent = (lang === "en") ? "🇬🇧 English" : "🇫🇷 Français";
+    localStorage.setItem("lang", lang);
+}
+
+btn.onclick = () => {
+    currentLang = (currentLang === "en") ? "fr" : "en";
+    applyLang(currentLang);
+};
+
+applyLang(currentLang);
+</script>
+
+</body>
+</html>
+
+
+
+
+

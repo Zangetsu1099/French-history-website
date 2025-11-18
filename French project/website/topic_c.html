@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-en="The Renaissance & Humanism in France (16th Century)"
+            data-fr="La Renaissance et l'humanisme en France (XVIe siècle)">
+        The Renaissance & Humanism in France (16th Century)
+    </title>
+
+    <link rel="icon" type="image/jpg" href="image/logopbl.jpg" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+
+<style>
+/* HERO */
+.topic-hero {
+    position: relative;
+    height: 58vh;
+    background: url("image/renaissance_hero.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+.topic-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+}
+.topic-hero h1 {
+    position: relative;
+    z-index: 2;
+    font-size: 48px;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+}
+
+/* GRID CONTENT SECTIONS — SAME AS TOPIC A */
+.topic-container {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.topic-section {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 40px;
+    margin-bottom: 80px;
+    align-items: start;
+}
+
+.topic-section img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.topic-section .text-block h2 {
+    font-size: 36px;
+    font-family: 'Playfair Display', serif;
+    color: #0f3460;
+}
+
+.topic-section .text-block p {
+    font-size: 19px;
+    line-height: 1.65;
+    margin-bottom: 14px;
+}
+
+@media(max-width:768px){
+    .topic-section {
+        grid-template-columns: 1fr;
+    }
+    .topic-section img {
+        margin-top: 20px;
+    }
+}
+
+/* BOTTOM NAV (same as A) */
+.bottom-nav {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom-nav a {
+    font-size: 20px;
+    color: #1a5e63;
+    text-decoration: none;
+    font-weight: 500;
+}
+.bottom-nav a:hover { color: var(--accent); }
+
+</style>
+</head>
+
+<body>
+
+<!-- LANGUAGE TOGGLE -->
+<button id="lang-toggle">🇬🇧 English</button>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-container">
+        <h2 class="logo" data-en="French History" data-fr="Histoire de France">French History</h2>
+        <ul class="nav-links">
+            <li><a href="index.html" data-en="Home" data-fr="Accueil">Home</a></li>
+            <li><a href="topic_c.html" class="active" data-en="Renaissance" data-fr="Renaissance">Renaissance</a></li>
+            <li><a href="index.html#topics" data-en="Topics" data-fr="Sujets">Topics</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="topic-hero">
+    <h1 data-en="The Renaissance & Humanism in France (16th Century)"
+        data-fr="La Renaissance et l'humanisme en France (XVIe siècle)">
+        The Renaissance & Humanism in France (16th Century)
+    </h1>
+</header>
+
+<!-- CONTENT -->
+<div class="topic-container">
+
+    <!-- INTRO -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="Introduction" data-fr="Introduction">Introduction</h2>
+
+            <p data-en="The 16th-century Renaissance transformed France through art, literature, science, architecture, and philosophy. Inspired by the Italian Renaissance, French kings and scholars promoted humanism—the idea that humans have great intellectual and creative potential."
+               data-fr="La Renaissance du XVIe siècle transforme la France par l’art, la littérature, la science, l’architecture et la philosophie. Inspirés par la Renaissance italienne, les rois et les érudits français encouragent l’humanisme — l’idée que l’être humain possède un grand potentiel intellectuel et créatif.">
+            </p>
+
+            <p data-en="This period marks the birth of modern French culture, with the rise of new ideas, artistic movements, and educational reforms."
+               data-fr="Cette période marque la naissance de la culture française moderne, avec l’essor de nouvelles idées, de mouvements artistiques et de réformes éducatives.">
+            </p>
+        </div>
+
+        <img src="image/renaissance_art.jpg" alt="French Renaissance Art">
+    </section>
+
+    <!-- WHAT IS HUMANISM -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="What Is Humanism?" data-fr="Qu’est-ce que l’humanisme ?">What Is Humanism?</h2>
+
+            <p data-en="Humanism encouraged the study of classical Greek and Roman texts, focusing on human experience, education, and critical thinking rather than religious dogma."
+               data-fr="L’humanisme encourage l’étude des textes grecs et romains, et met l’accent sur l’expérience humaine, l’éducation et la pensée critique plutôt que sur le dogme religieux.">
+            </p>
+
+            <p data-en="Humanists believed that knowledge should help people understand themselves and improve society."
+               data-fr="Les humanistes pensent que la connaissance doit aider les individus à se comprendre et à améliorer la société.">
+            </p>
+        </div>
+
+        <img src="image/renaissance_hero.jpg" alt="Humanist Books">
+    </section>
+
+    <!-- KEY HUMANISTS -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="Key French Humanists" data-fr="Grands humanistes français">Key French Humanists</h2>
+
+            <p data-en="• François Rabelais — Author of Gargantua and Pantagruel, celebrated learning, imagination, and freedom."
+               data-fr="• François Rabelais — Auteur de Gargantua et Pantagruel, célèbre la connaissance, l’imagination et la liberté.">
+            </p>
+
+            <p data-en="• Michel de Montaigne — Writer and philosopher, father of the modern essay, explored human nature through self-reflection."
+               data-fr="• Michel de Montaigne — Écrivain et philosophe, père de l’essai moderne, étudie la nature humaine par l’introspection.">
+            </p>
+
+            <p data-en="• Guillaume Budé — Scholar who modernized French education and promoted classical studies."
+               data-fr="• Guillaume Budé — Érudit qui modernise l’éducation française et promeut les études classiques.">
+            </p>
+        </div>
+
+        <img src="image/montaigne.jpg" alt="Montaigne Portrait">
+    </section>
+
+    <!-- ART & ARCHITECTURE -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="Art & Architecture" data-fr="Art et architecture">Art & Architecture</h2>
+
+            <p data-en="French kings invited Italian masters—such as Leonardo da Vinci—to bring Renaissance art and architecture to France."
+               data-fr="Les rois français invitent des maîtres italiens — comme Léonard de Vinci — à introduire l’art et l’architecture de la Renaissance en France.">
+            </p>
+
+            <p data-en="The Château de Fontainebleau became a center for Renaissance artistic innovation, blending Italian and French styles."
+               data-fr="Le château de Fontainebleau devient un centre d’innovation artistique, mêlant les styles italiens et français.">
+            </p>
+        </div>
+
+        <img src="image/fontainebleau.jpg" alt="Château de Fontainebleau">
+    </section>
+
+    <!-- PRINTING -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="The Printing Revolution" data-fr="La révolution de l’imprimerie">The Printing Revolution</h2>
+
+            <p data-en="The printing press allowed books to spread rapidly throughout France, making education and humanist ideas accessible to more people."
+               data-fr="L’imprimerie permet la diffusion rapide des livres en France, rendant l’éducation et les idées humanistes accessibles à davantage de personnes.">
+            </p>
+        </div>
+
+        <img src="image/printing_press.jpg" alt="Renaissance Printing Press">
+    </section>
+
+</div>
+
+<!-- NAVIGATION -->
+<div class="bottom-nav">
+    <a href="topic_b.html" data-en="← Previous: The 100 Years War" data-fr="← Précédent : Guerre de Cent Ans">← Previous: The 100 Years War</a>
+    <a href="topic_d.html" data-en="Next: Louis XIV →" data-fr="Suivant : Louis XIV →">Next Topic →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p data-en="© 2025 French History Project — Designed by Zangetsu"
+       data-fr="© 2025 Projet d'histoire française — Conçu par Zangetsu">
+       © 2025 French History Project — Designed by Zangetsu
+    </p>
+</footer>
+
+<!-- LANGUAGE SCRIPT -->
+<script>
+const btn = document.getElementById("lang-toggle");
+let currentLang = localStorage.getItem("lang") || "en";
+
+function applyLang(lang){
+    document.querySelectorAll("[data-en]").forEach(el=>{
+        const txt = el.getAttribute(`data-${lang}`);
+        if(txt) el.textContent = txt;
+    });
+    btn.textContent = lang==="en" ? "🇬🇧 English" : "🇫🇷 Français";
+    localStorage.setItem("lang", lang);
+}
+
+btn.onclick = () => {
+    currentLang = currentLang==="en" ? "fr" : "en";
+    applyLang(currentLang);
+};
+
+applyLang(currentLang);
+</script>
+
+</body>
+</html>
+

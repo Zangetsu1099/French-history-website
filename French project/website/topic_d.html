@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-en="Louis XIV — The Sun King"
+            data-fr="Louis XIV — Le Roi Soleil">
+        Louis XIV — The Sun King
+    </title>
+
+    <link rel="icon" type="image/jpg" href="image/logopbl.jpg" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        /* HERO */
+        .topic-hero {
+            position: relative;
+            height: 58vh;
+            background: url('image/louis14_hero.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+        .topic-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+        }
+        .topic-hero h1 {
+            position: relative;
+            z-index: 2;
+            font-size: 50px;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* GRID LAYOUT LIKE TOPIC A */
+        .topic-container {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .topic-section {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 40px;
+            margin-bottom: 80px;
+            align-items: start;
+        }
+        .topic-section img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .topic-section .text-block h2 {
+            font-size: 34px;
+            font-family: 'Playfair Display', serif;
+            color: #0f3460;
+            margin-bottom: 14px;
+        }
+        .topic-section .text-block p {
+            font-size: 19px;
+            line-height: 1.65;
+            margin-bottom: 14px;
+            font-family: "EB Garamond", serif;
+        }
+
+        /* MOBILE */
+        @media(max-width: 768px) {
+            .topic-section {
+                grid-template-columns: 1fr;
+            }
+            .topic-hero h1 {
+                font-size: 30px;
+            }
+        }
+
+        /* BOTTOM NAVIGATION */
+        .bottom-nav {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .bottom-nav a {
+            font-size: 20px;
+            color: #1a5e63;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .bottom-nav a:hover {
+            color: var(--accent);
+        }
+
+        #lang-toggle {
+            position: fixed; top: 18px; right: 20px; z-index: 500;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- LANGUAGE TOGGLE -->
+<button id="lang-toggle">🇬🇧 English</button>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-container">
+        <h2 class="logo" data-en="French History" data-fr="Histoire de France">French History</h2>
+        <ul class="nav-links">
+            <li><a href="index.html" data-en="Home" data-fr="Accueil">Home</a></li>
+            <li><a href="topic_d.html" class="active" data-en="Louis XIV" data-fr="Louis XIV">Louis XIV</a></li>
+            <li><a href="index.html#topics" data-en="Topics" data-fr="Sujets">Topics</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="topic-hero">
+    <h1 data-en="Louis XIV — The Sun King"
+        data-fr="Louis XIV — Le Roi Soleil">
+        Louis XIV — The Sun King
+    </h1>
+</header>
+
+<!-- PAGE CONTENT -->
+<div class="topic-container">
+
+    <!-- SECTION 1 -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="Introduction" data-fr="Introduction">Introduction</h2>
+            <p data-en="Louis XIV ruled France from 1643 to 1715, making his reign one of the longest in European history. Known as the 'Sun King', he strengthened the French monarchy and transformed France into the most powerful kingdom in Europe."
+               data-fr="Louis XIV régna sur la France de 1643 à 1715, faisant de son règne l’un des plus longs de l’histoire européenne. Connu sous le nom de « Roi Soleil », il renforça la monarchie française et fit de la France le royaume le plus puissant d’Europe.">
+            </p>
+            <p data-en="His rule marked a golden age of art, architecture, and cultural influence that shaped France for centuries."
+               data-fr="Son règne marque un âge d’or d’art, d’architecture et d’influence culturelle qui façonnera la France pendant des siècles.">
+        </div>
+        <img src="image/louis14_portrait.jpg" alt="Louis XIV Portrait">
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="The Sun King" data-fr="Le Roi Soleil">The Sun King</h2>
+            <p data-en="Louis XIV chose the sun as his royal emblem, symbolizing power, radiance, and the idea that everything revolves around the king."
+               data-fr="Louis XIV choisit le soleil comme emblème royal, symbolisant la puissance, la splendeur et l’idée que tout gravite autour du roi.">
+            </p>
+            <p data-en="He believed in absolute monarchy and centralized authority, famously associated with the phrase 'L'État, c'est moi' ('I am the state')."
+               data-fr="Il croyait en la monarchie absolue et à l’autorité centralisée, souvent associée à la phrase « L’État, c’est moi ».">
+        </div>
+        <img src="image/sun_king_symbol.jpg" alt="Sun King Symbol">
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="The Palace of Versailles"
+                data-fr="Le château de Versailles">
+                The Palace of Versailles
+            </h2>
+            <p data-en="Louis XIV transformed a hunting lodge into the magnificent Palace of Versailles. It became the center of political power and the ultimate symbol of royal authority."
+               data-fr="Louis XIV transforma un pavillon de chasse en l’extraordinaire château de Versailles. Il devint le centre du pouvoir politique et le symbole suprême de l’autorité royale.">
+            </p>
+            <p data-en="With its grand gardens, fountains, sculptures, and the famous Hall of Mirrors, Versailles showcased France’s cultural glory."
+               data-fr="Avec ses vastes jardins, ses fontaines, ses sculptures et la célèbre galerie des Glaces, Versailles illustrait la grandeur culturelle de la France.">
+            </p>
+        </div>
+        <img src="image/versailles_hall.jpg" alt="Hall of Mirrors">
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="Absolute Monarchy"
+                data-fr="La monarchie absolue">
+                Absolute Monarchy
+            </h2>
+            <p data-en="Louis XIV centralized government power, reduced the influence of nobles, and created a highly structured court society."
+               data-fr="Louis XIV centralisa le pouvoir, réduisit l’influence des nobles et créa une société de cour très structurée.">
+            </p>
+            <p data-en="His reforms strengthened royal authority and shaped the future of the French state."
+               data-fr="Ses réformes consolidèrent l’autorité royale et façonnèrent l’avenir de l’État français.">
+        </div>
+        <img src="image/versailles_courtyard.jpg" alt="Versailles Courtyard">
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="Cultural Golden Age"
+                data-fr="Un âge d'or culturel">
+                Cultural Golden Age
+            </h2>
+            <p data-en="Louis XIV supported great artists such as Molière, Racine, Lully, and Le Brun, helping to establish French cultural dominance in Europe."
+               data-fr="Louis XIV soutint de grands artistes comme Molière, Racine, Lully et Le Brun, contribuant à établir l’influence culturelle française en Europe.">
+            </p>
+            <p data-en="This era shaped French literature, music, architecture, and fashion for generations."
+               data-fr="Cette époque façonna la littérature, la musique, l’architecture et la mode françaises pour des générations.">
+        </div>
+        <img src="image/lully_opera.jpg" alt="Baroque Music Under Louis XIV">
+    </section>
+
+</div>
+
+<!-- BOTTOM NAVIGATION -->
+<div class="bottom-nav">
+    <a href="topic_c.html"
+       data-en="← Previous: Renaissance & Humanism"
+       data-fr="← Précédent : Renaissance & Humanisme">
+       ← Previous: Renaissance & Humanism
+    </a>
+
+    <a href="index.html"
+       data-en="Back to Home"
+       data-fr="Retour à l’accueil">
+       Back to Home
+    </a>
+
+    <a href="topic_e.html"
+       data-en="Next: Napoleon & Waterloo →"
+       data-fr="Suivant : Napoléon & Waterloo →">
+       Next: Napoleon & Waterloo →
+    </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p data-en="© 2025 French History Project — Designed by You"
+       data-fr="© 2025 Projet d'histoire française — Conçu par vous">
+       © 2025 French History Project — Designed by You
+    </p>
+</footer>
+
+<!-- LANGUAGE SCRIPT -->
+<script>
+const btn = document.getElementById("lang-toggle");
+let currentLang = localStorage.getItem("lang") || "en";
+
+function applyLang(lang) {
+    document.querySelectorAll("[data-en]").forEach(el => {
+        const text = el.getAttribute(`data-${lang}`);
+        if (text) el.textContent = text;
+    });
+    btn.textContent = lang === "en" ? "🇬🇧 English" : "🇫🇷 Français";
+    localStorage.setItem("lang", lang);
+}
+
+btn.onclick = () => {
+    currentLang = currentLang === "en" ? "fr" : "en";
+    applyLang(currentLang);
+};
+
+applyLang(currentLang);
+</script>
+
+</body>
+</html>
+

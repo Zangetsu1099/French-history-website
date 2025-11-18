@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-en="Napoleon Bonaparte & The Battle of Waterloo"
+            data-fr="Napoléon Bonaparte et la bataille de Waterloo">
+        Napoleon Bonaparte & The Battle of Waterloo
+    </title>
+
+    <link rel="icon" type="image/jpg" href="image/logopbl.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* HERO */
+        .topic-hero {
+            position: relative;
+            height: 58vh;
+            background: url('image/napoleon_hero.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .topic-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+        }
+        .topic-hero h1 {
+            position: relative;
+            z-index: 2;
+            font-size: 48px;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            padding: 0 10px;
+        }
+
+        /* TWO-COLUMN CONTENT */
+        .topic-container {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .topic-section {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 40px;
+            margin-bottom: 80px;
+            align-items: start;
+        }
+        .topic-section img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .topic-section h2 {
+            font-family: 'Playfair Display';
+            font-size: 34px;
+            color: #0f3460;
+            margin-bottom: 14px;
+        }
+        .topic-section p {
+            font-family: 'EB Garamond', serif;
+            font-size: 19px;
+            line-height: 1.65;
+            margin-bottom: 12px;
+        }
+
+        /* MOBILE */
+        @media(max-width: 768px) {
+            .topic-section {
+                grid-template-columns: 1fr;
+            }
+            .topic-hero h1 {
+                font-size: 30px;
+            }
+        }
+
+        /* BOTTOM NAVIGATION (Same as Topic A) */
+        .bottom-nav {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .bottom-nav a {
+            font-size: 20px;
+            color: #1a5e63;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .bottom-nav a:hover {
+            color: var(--accent);
+        }
+
+        #lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 500;
+        }
+    </style>
+</head>
+
+<body>
+
+<button id="lang-toggle">🇬🇧 English</button>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-container">
+        <h2 class="logo" data-en="French History" data-fr="Histoire de France">French History</h2>
+        <ul class="nav-links">
+            <li><a href="index.html" data-en="Home" data-fr="Accueil">Home</a></li>
+            <li><a href="topic_e.html" class="active" data-en="Napoleon" data-fr="Napoléon">Napoleon</a></li>
+            <li><a href="index.html#topics" data-en="Topics" data-fr="Sujets">Topics</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="topic-hero">
+    <h1 data-en="Napoleon Bonaparte & The Battle of Waterloo"
+        data-fr="Napoléon Bonaparte et la bataille de Waterloo">
+        Napoleon Bonaparte & The Battle of Waterloo
+    </h1>
+</header>
+
+<!-- CONTENT -->
+<div class="topic-container">
+
+    <!-- SECTION 1: INTRO -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="Introduction" data-fr="Introduction">Introduction</h2>
+            <p data-en="Napoleon Bonaparte (1769–1821) rose from a young military officer to Emperor of the French. His impact on Europe was immense—through warfare, political reform, and the creation of the Napoleonic Code."
+               data-fr="Napoléon Bonaparte (1769–1821) passa du statut de jeune officier à celui d’empereur des Français. Son impact sur l’Europe fut immense — par la guerre, les réformes politiques et la création du Code civil.">
+            </p>
+            <p data-en="His final defeat at Waterloo in 1815 marked the end of his empire and reshaped Europe’s political landscape."
+               data-fr="Sa défaite finale à Waterloo en 1815 marque la fin de son empire et transforme le paysage politique européen.">
+            </p>
+        </div>
+        <img src="image/napoleon_crowning.jpg" alt="Napoleon Crowning">
+    </section>
+
+    <!-- SECTION 2: RISE -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="Rise to Power" data-fr="L’ascension au pouvoir">Rise to Power</h2>
+            <p data-en="Born in Corsica, Napoleon gained recognition during the French Revolution. His military victories and political skill led to the 1799 coup d’État, making him First Consul, and later Emperor in 1804."
+               data-fr="Né en Corse, Napoléon se fit connaître durant la Révolution française. Ses victoires militaires et son habileté politique aboutissent au coup d’État de 1799, le faisant Premier Consul, puis Empereur en 1804.">
+            </p>
+        </div>
+        <img src="image/napoleon_hero.jpg" alt="Napoleon Portrait">
+    </section>
+
+    <!-- SECTION 3: WARS -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="The Napoleonic Wars"
+                data-fr="Les guerres napoléoniennes">The Napoleonic Wars</h2>
+            <p data-en="Napoleon’s empire expanded rapidly through Europe thanks to decisive victories such as Austerlitz and Jena."
+               data-fr="L’empire de Napoléon s’étend rapidement en Europe grâce à des victoires décisives comme Austerlitz et Iéna.">
+            </p>
+            <p data-en="However, long campaigns — especially the failed invasion of Russia in 1812 — weakened France and its allies."
+               data-fr="Cependant, les campagnes prolongées — notamment l’invasion ratée de la Russie en 1812 — affaiblissent la France et ses alliés.">
+            </p>
+        </div>
+        <img src="image/napoleonic_map.jpg" alt="Napoleonic Map">
+    </section>
+
+    <!-- SECTION 4: WATERLOO -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="The Battle of Waterloo"
+                data-fr="La bataille de Waterloo">The Battle of Waterloo</h2>
+            <p data-en="After escaping exile on Elba, Napoleon returned to power for the 'Hundred Days'. On June 18, 1815, he faced the British under Wellington and the Prussians under Blücher at Waterloo."
+               data-fr="Après s’être échappé de son exil à l’île d’Elbe, Napoléon reprend le pouvoir durant les « Cent-Jours ». Le 18 juin 1815, il affronte les Britanniques de Wellington et les Prussiens de Blücher à Waterloo.">
+            </p>
+            <p data-en="The battle ended in a crushing defeat, forcing Napoleon to abdicate for the second and final time."
+               data-fr="La bataille se termine par une défaite écrasante, forçant Napoléon à abdiquer pour la seconde et dernière fois.">
+            </p>
+        </div>
+        <img src="image/battle_waterloo.jpg" alt="Battle of Waterloo">
+    </section>
+
+    <!-- SECTION 5: LEGACY -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="Exile & Legacy"
+                data-fr="Exil et héritage">Exile & Legacy</h2>
+            <p data-en="After Waterloo, Napoleon was exiled to Saint Helena, where he died in 1821. Despite his downfall, his reforms shaped modern Europe."
+               data-fr="Après Waterloo, Napoléon est exilé à Sainte-Hélène, où il meurt en 1821. Malgré sa chute, ses réformes ont façonné l’Europe moderne.">
+            </p>
+            <p data-en="His legacy includes the Napoleonic Code, modern administration, and military strategy."
+               data-fr="Son héritage inclut le Code civil, l’administration moderne et des stratégies militaires étudiées encore aujourd’hui.">
+            </p>
+        </div>
+        <img src="image/napoleon_exile.jpg" alt="Napoleon Exile" >
+    </section>
+
+</div>
+
+<!-- BOTTOM NAVIGATION -->
+<div class="bottom-nav">
+    <a href="topic_d.html"
+       data-en="← Previous: Louis XIV"
+       data-fr="← Précédent : Louis XIV">← Previous: Louis XIV</a>
+
+    <a href="index.html"
+       data-en="Back to Home"
+       data-fr="Retour à l’accueil">Back to Home</a>
+
+    <a href="topic_f.html"
+       data-en="Next: Colonisation & Decolonisation →"
+       data-fr="Suivant : Colonisation & Décolonisation →">
+       Next: Colonisation & Decolonisation →
+    </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p data-en="© 2025 French History Project — Designed by You"
+       data-fr="© 2025 Projet d'histoire française — Conçu par vous">
+       © 2025 French History Project — Designed by You
+    </p>
+</footer>
+
+<!-- LANGUAGE SCRIPT -->
+<script>
+const btn = document.getElementById("lang-toggle");
+let currentLang = localStorage.getItem("lang") || "en";
+
+function applyLang(lang) {
+    document.querySelectorAll("[data-en]").forEach(el => {
+        const text = el.getAttribute(`data-${lang}`);
+        if (text) el.textContent = text;
+    });
+    btn.textContent = lang === "en" ? "🇬🇧 English" : "🇫🇷 Français";
+    localStorage.setItem("lang", lang);
+}
+
+btn.onclick = () => {
+    currentLang = currentLang === "en" ? "fr" : "en";
+    applyLang(currentLang);
+};
+
+applyLang(currentLang);
+</script>
+
+</body>
+</html>
+

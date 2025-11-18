@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-en="The Hundred Years’ War & Joan of Arc"
+            data-fr="La guerre de Cent Ans et Jeanne d’Arc">
+        The Hundred Years’ War & Joan of Arc
+    </title>
+
+    <link rel="icon" type="image/jpg" href="image/logopbl.jpg" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        /* HERO */
+        .topic-hero {
+            position: relative;
+            height: 58vh;
+            background: url('image/joan_hero.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+        .topic-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+        }
+        .topic-hero h1 {
+            position: relative;
+            z-index: 2;
+            font-size: 48px;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* CONTENT GRID (same as Topic A) */
+        .topic-container {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .topic-section {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            margin-bottom: 80px;
+            align-items: start;
+        }
+
+        .topic-section img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .topic-section .text-block h2 {
+            font-size: 36px;
+            font-family: 'Playfair Display', serif;
+            color: #0f3460;
+        }
+
+        .topic-section .text-block p {
+            font-size: 19px;
+            line-height: 1.65;
+            margin-bottom: 14px;
+        }
+
+        @media(max-width: 768px) {
+            .topic-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* NEXT + BACK LINKS (same as A) */
+        .bottom-nav {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bottom-nav a {
+            font-size: 20px;
+            color: #1a5e63;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .bottom-nav a:hover {
+            color: var(--accent);
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- LANGUAGE BUTTON (same as Topic A) -->
+<button id="lang-toggle">🇬🇧 English</button>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-container">
+        <h2 class="logo" data-en="French History" data-fr="Histoire de France">French History</h2>
+        <ul class="nav-links">
+            <li><a href="index.html" data-en="Home" data-fr="Accueil">Home</a></li>
+            <li><a href="topic_b.html" class="active" data-en="Joan of Arc" data-fr="Jeanne d’Arc">Joan of Arc</a></li>
+            <li><a href="index.html#topics" data-en="Topics" data-fr="Sujets">Topics</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="topic-hero">
+    <h1 data-en="The Hundred Years’ War & Joan of Arc"
+        data-fr="La guerre de Cent Ans et Jeanne d’Arc">
+        The Hundred Years’ War & Joan of Arc
+    </h1>
+</header>
+
+<!-- MAIN CONTENT -->
+<div class="topic-container">
+
+    <!-- INTRO -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="Introduction" data-fr="Introduction">Introduction</h2>
+
+            <p data-en="The Hundred Years’ War (1337–1453) was a long conflict between England and France. In this dark period, Joan of Arc—an ordinary village girl—rose to become a national heroine who helped save France." 
+               data-fr="La guerre de Cent Ans (1337–1453) fut un long conflit entre l’Angleterre et la France. Dans cette période sombre, Jeanne d’Arc — une simple villageoise — devint une héroïne nationale qui contribua à sauver la France.">
+            </p>
+
+            <p data-en="Guided by what she believed were divine voices, Joan inspired French troops, lifted the siege of Orléans, and helped pave the way for the coronation of Charles VII." 
+               data-fr="Guidée par ce qu’elle croyait être des voix divines, Jeanne inspira les troupes françaises, libéra Orléans et ouvrit la voie au sacre de Charles VII.">
+            </p>
+        </div>
+
+        <img src="image/joan_banner.jpg" alt="Joan of Arc Banner">
+    </section>
+
+    <!-- BACKGROUND -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="Background of the War" data-fr="Contexte de la guerre">Background of the War</h2>
+
+            <p data-en="The war began when English kings claimed the French crown. Major battles such as Crécy, Poitiers, and Agincourt weakened France severely." 
+               data-fr="La guerre commence lorsque les rois d’Angleterre revendiquent la couronne française. Des batailles majeures comme Crécy, Poitiers et Azincourt affaiblissent gravement la France.">
+            </p>
+
+            <p data-en="By 1429, northern France was largely under English control, and morale was at its lowest—until Joan arrived." 
+               data-fr="En 1429, le nord de la France est largement occupé par les Anglais, et le moral est au plus bas — jusqu’à l’arrivée de Jeanne.">
+            </p>
+        </div>
+
+        <img src="image/joan_youth.jpg" alt="Young Joan of Arc">
+    </section>
+
+    <!-- THE SIEGE OF ORLEANS -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="The Siege of Orléans" data-fr="Le siège d'Orléans">The Siege of Orléans</h2>
+
+            <p data-en="Orléans had been besieged for months when Joan arrived. Her presence revived courage among the soldiers." 
+               data-fr="Orléans était assiégée depuis des mois lorsque Jeanne arriva. Sa présence redonna espoir aux soldats.">
+            </p>
+
+            <p data-en="Under her leadership, the French launched bold attacks and lifted the siege in May 1429—turning the tide of the war." 
+               data-fr="Sous son inspiration, les Français lancèrent des attaques audacieuses et levèrent le siège en mai 1429 — changeant le cours de la guerre.">
+            </p>
+        </div>
+
+        <img src="image/joan_orleans.jpg" alt="Siege of Orleans">
+    </section>
+
+    <!-- CORONATION -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="The Coronation at Reims" data-fr="Le sacre à Reims">The Coronation at Reims</h2>
+
+            <p data-en="Joan insisted that Charles VII must be crowned in Reims. Despite danger, the French marched through enemy territory." 
+               data-fr="Jeanne insista pour que Charles VII soit sacré à Reims. Malgré le danger, les Français traversèrent le territoire ennemi.">
+            </p>
+
+            <p data-en="On 17 July 1429, Charles VII was crowned, with Joan standing beside him. This victory legitimized his rule." 
+               data-fr="Le 17 juillet 1429, Charles VII fut sacré, Jeanne se tenant à ses côtés. Cette victoire légitima son règne.">
+            </p>
+        </div>
+
+        <img src="image/joan_reims.jpg" alt="Reims Coronation">
+    </section>
+
+    <!-- CAPTURE & TRIAL -->
+    <section class="topic-section">
+        <div class="text-block">
+            <h2 data-en="Capture and Trial" data-fr="Capture et procès">Capture and Trial</h2>
+
+            <p data-en="In 1430, Joan was captured by Burgundians and sold to the English. Her trial in Rouen was politically motivated." 
+               data-fr="En 1430, Jeanne est capturée par les Bourguignons et vendue aux Anglais. Son procès à Rouen est motivé politiquement.">
+            </p>
+
+            <p data-en="She was executed on 30 May 1431 at just 19 years old, but her courage remained unforgettable." 
+               data-fr="Elle est exécutée le 30 mai 1431 à seulement 19 ans, mais son courage reste inoubliable.">
+            </p>
+        </div>
+
+        <img src="image/joan_trial.jpg" alt="Joan of Arc Trial">
+    </section>
+
+</div>
+
+<!-- NEXT + BACK NAVIGATION -->
+<div class="bottom-nav">
+    <a href="topic_a.html" data-en="← Previous: Gaul" data-fr="← Précédent : Gaule">← Previous: Gaul</a>
+    <a href="topic_c.html" data-en="Next: Renaissance →" data-fr="Suivant : Renaissance →">Next Topic →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p data-en="© 2025 French History Project — Designed by Zangetsu"
+       data-fr="© 2025 Projet d'histoire française — Conçu par Zangetsu">
+       © 2025 French History Project — Designed by Zangetsu
+    </p>
+    <p><a href="index.html" style="color:#f8f8f8;text-decoration:underline;">← Back to Home</a></p>
+</footer>
+
+<!-- LANGUAGE TOGGLE SCRIPT (same as Topic A) -->
+<script>
+const btn = document.getElementById("lang-toggle");
+let currentLang = localStorage.getItem("lang") || "en";
+
+function applyLang(lang) {
+    document.querySelectorAll("[data-en]").forEach(el => {
+        const text = el.getAttribute(`data-${lang}`);
+        if (text) el.textContent = text;
+    });
+    btn.textContent = (lang === "en") ? "🇬🇧 English" : "🇫🇷 Français";
+    localStorage.setItem("lang", lang);
+}
+
+btn.onclick = () => {
+    currentLang = (currentLang === "en") ? "fr" : "en";
+    applyLang(currentLang);
+};
+
+applyLang(currentLang);
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title data-en="History Quiz — Boss Fight" data-fr="Quiz d'Histoire — Combat de Boss">History Quiz — Boss Fight</title>
+<link rel="icon" type="image/jpg" href="image/logopbl.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+  :root{
+    --accent:#b85c38;
+    --bg:#fdf9ef;
+  }
+  body {
+    background: var(--bg);
+    font-family: 'EB Garamond', serif;
+    margin: 0;
+    padding: 32px 16px;
+    color: #2e2a26;
+  }
+
+  /* Language button (matches site) */
+  #lang-toggle {
+    position: fixed;
+    top: 18px;
+    right: 22px;
+    z-index: 600;
+    background: var(--accent); color: #fff; border: none;
+    padding: 8px 14px; border-radius: 24px; cursor: pointer;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .container {
+    max-width: 980px;
+    margin: 80px auto;
+    text-align: center;
+  }
+
+  h1.page-title {
+    font-family: 'Playfair Display';
+    font-size: 34px;
+    margin-bottom: 6px;
+  }
+
+  .game-area {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 28px;
+    align-items: start;
+    margin-top: 22px;
+  }
+
+  /* Left: quiz box */
+  .quiz-box {
+    background: #fff;
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    min-height: 360px;
+  }
+
+  .question {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .options { display:flex; flex-direction:column; gap:12px; }
+
+  .option {
+    background: #fff7e0;
+    border: 2px solid #e5d7b8;
+    padding: 12px 14px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+    transition: transform .18s ease, background .18s;
+  }
+  .option:hover { transform: translateY(-4px); background:#ffeec3; }
+
+  /* Right: boss area */
+  .boss-panel {
+    background: linear-gradient(180deg,#fff,#fff7f0);
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    min-height: 360px;
+  }
+
+  .boss-portrait {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    border-radius: 10px;
+    background: radial-gradient(circle at 20% 10%, rgba(224,185,115,0.12), transparent 30%);
+    transition: transform .12s ease;
+  }
+
+  .boss-name { font-family:'Playfair Display'; font-size: 22px; margin:12px 0 6px; }
+  .boss-hp { margin: 8px 0 14px; }
+
+  .hp-list { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
+  .hp-item {
+    width: 28px; height: 28px; border-radius:6px; background:#f0dede;
+    display:inline-flex; align-items:center; justify-content:center; color:#8b0000;
+    font-weight:700; box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  }
+  .hp-item.full { background:#8b0000; color:white; }
+
+  /* player hearts */
+  .lives-wrap { margin-bottom:18px; }
+  .heart {
+    font-size: 34px;
+    margin: 0 6px;
+    display:inline-block;
+    transition: transform .25s ease, filter .25s;
+  }
+  .heart.shake {
+    animation: heartShake .5s ease;
+    transform-origin: 50% 50%;
+  }
+  @keyframes heartShake {
+    0% { transform: translateY(0) rotate(0deg); filter: drop-shadow(0 0 0 transparent); }
+    30% { transform: translateY(-6px) rotate(-6deg); filter: drop-shadow(0 6px 6px rgba(0,0,0,0.12)); }
+    60% { transform: translateY(0) rotate(6deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+  }
+
+  /* small HUD */
+  .hud { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; gap:10px; }
+  .score { font-size:16px; }
+
+  /* Final screens (small boxes inside quiz) */
+  .final-screen {
+    display:none;
+    margin-top: 18px;
+    padding: 22px;
+    border-radius: 12px;
+    font-family: 'Playfair Display';
+    font-size: 32px;
+    font-weight:700;
+  }
+  .final-screen.win { color:#0f6e2f; background: rgba(0,255,80,0.06); box-shadow:0 8px 30px rgba(0,0,0,0.06); }
+  .final-screen.lose { color:#8b0000; background: rgba(255,0,0,0.03); box-shadow:0 8px 30px rgba(0,0,0,0.06); }
+
+  .final-details { font-family:'EB Garamond'; font-size:18px; margin-top:8px; color:#333; }
+
+  .center-btn {
+    margin: 16px auto 0 auto;
+    display:inline-block;
+    padding: 12px 26px;
+    border-radius: 12px;
+    background: #292929;
+    color: #fff;
+    font-size:18px;
+    cursor:pointer;
+  }
+
+  /* ELDEN RING full-screen overlays */
+  .eld-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .eld-inner {
+    text-align: center;
+  }
+
+  .eld-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 96px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeText 2s ease forwards;
+    margin-bottom: 18px;
+  }
+
+  .eld-text.eld-lose {
+    color: #8b0000;  /* Elden Ring red */
+    text-shadow: 0 0 18px rgba(255,0,0,0.45);
+  }
+
+  .eld-text.eld-win {
+    color: #e7d7aa; /* Golden Elden Ring win shade */
+    text-shadow: 0 0 18px rgba(255,245,200,0.7);
+  }
+
+  .eld-sub {
+    font-family: 'EB Garamond';
+    font-size: 20px;
+    color: #efe9df;
+    margin-bottom: 16px;
+  }
+
+  .eld-restart {
+    padding: 14px 30px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.08);
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  @keyframes fadeText {
+    0%   { opacity: 0; transform: scale(1.6); }
+    60%  { opacity: 1; transform: scale(1); }
+    100% { opacity: 1; }
+  }
+
+  /* responsive */
+  @media (max-width:980px) {
+    .game-area { grid-template-columns: 1fr; }
+    .boss-panel { order: -1; margin-bottom: 18px; }
+    .eld-text { font-size: 48px; letter-spacing: 4px; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- language toggle (shared) -->
+<button id="lang-toggle">🇬🇧 English</button>
+
+<div class="container">
+  <h1 class="page-title" data-en="French History — Boss Quiz" data-fr="Histoire de France — Quiz Boss">French History — Boss Quiz</h1>
+
+  <div class="game-area">
+    <!-- QUIZ BOX -->
+    <div class="quiz-box" id="quizBox">
+      <div class="hud">
+        <div class="score" id="scoreText">Score: 0</div>
+        <div class="lives-wrap" id="lifeDisplay" aria-live="polite">
+          <!-- hearts inserted here -->
+        </div>
+      </div>
+
+      <div class="question" id="questionText">Loading...</div>
+      <div class="options" id="options"></div>
+
+      <!-- small final UI (not the Elden overlay) -->
+      <div id="finalWin" class="final-screen win" role="status" aria-hidden="true">
+        <div id="finalWinText">YOU WON!</div>
+        <div id="finalWinDetails" class="final-details"></div>
+        <button class="center-btn" id="restartWinBtn">Restart</button>
+      </div>
+
+      <div id="finalLose" class="final-screen lose" role="status" aria-hidden="true">
+        <div id="finalLoseText">YOU DIED</div>
+        <div id="finalLoseDetails" class="final-details"></div>
+        <button class="center-btn" id="restartLoseBtn">Restart</button>
+      </div>
+    </div>
+
+    <!-- BOSS PANEL -->
+    <aside class="boss-panel">
+      <img id="bossPortrait" src="image/napoleon_hero.jpg" alt="Boss portrait" class="boss-portrait">
+      <div class="boss-name" id="bossName">NAPOLEON</div>
+      <div class="boss-hp" id="bossHpWrap">
+        <div class="hp-list" id="bossHpList"></div>
+      </div>
+
+      <div style="margin-top:8px;">
+        <div style="font-size:14px;color:#666;margin-bottom:8px;" data-en="Boss" data-fr="Boss">Boss</div>
+        <div id="bossTypeDetails" style="font-size:13px;color:#444"></div>
+      </div>
+
+      <div style="margin-top:18px;">
+        <div style="font-weight:600;margin-bottom:8px;" data-en="Boss Actions" data-fr="Actions du Boss">Boss Actions</div>
+        <div style="font-size:14px;color:#444;" id="bossActionText"></div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- ELDEN RING OVERLAYS -->
+<div id="eldOverlayLose" class="eld-overlay" role="dialog" aria-hidden="true">
+  <div class="eld-inner">
+    <div id="eldLoseText" class="eld-text eld-lose">YOU DIED</div>
+    <div id="eldLoseSub" class="eld-sub">Final score: 0</div>
+    <button id="eldRestartLose" class="eld-restart">Restart</button>
+  </div>
+</div>
+
+<div id="eldOverlayWin" class="eld-overlay" role="dialog" aria-hidden="true">
+  <div class="eld-inner">
+    <div id="eldWinText" class="eld-text eld-win">YOU WON</div>
+    <div id="eldWinSub" class="eld-sub">Final score: 0</div>
+    <button id="eldRestartWin" class="eld-restart">Restart</button>
+  </div>
+</div>
+
+<!-- audio -->
+<audio id="hurtSound" src="https://assets.mixkit.co/active_storage/sfx/2570/2570-preview.mp3" preload="auto"></audio>
+<audio id="bossHitSound" src="https://assets.mixkit.co/preview/mixkit-evil-laugh-2028.mp3" preload="auto"></audio>
+<audio id="victorySound" src="https://assets.mixkit.co/preview/mixkit-fairy-win-2015.mp3" preload="auto"></audio>
+
+<script>
+/* --------------------------
+   LANGUAGE SYSTEM (fixed)
+   - Applies to page static elements and dynamic elements.
+   - Persists in localStorage.lang
+   - Reacts to other tabs via storage event
+   -------------------------- */
+const langBtn = document.getElementById("lang-toggle");
+let currentLang = localStorage.getItem("lang") || "en";
+
+function applyLang(lang) {
+  currentLang = lang;
+  // static elements that use data-en / data-fr
+  document.querySelectorAll("[data-en]").forEach(el=>{
+    const txt = el.getAttribute("data-"+lang);
+    if (txt) el.textContent = txt;
+  });
+
+  // update title element if present
+  const titleEl = document.querySelector("title");
+  if (titleEl && titleEl.getAttribute("data-"+lang)) {
+    titleEl.textContent = titleEl.getAttribute("data-"+lang);
+  }
+
+  // Update overlay small labels (restart button text)
+  const restartText = lang === "en" ? "Restart" : "Recommencer";
+  document.querySelectorAll(".center-btn").forEach(b => b.textContent = restartText);
+  document.querySelectorAll(".eld-restart").forEach(b => b.textContent = restartText);
+
+  // Update HUD/score label
+  updateScoreText();
+
+  // Update any dynamic content that uses currentLang
+  renderBoss();
+  loadQuestion();
+
+  // Update Elden overlays (sub text)
+  const winSub = document.getElementById("eldWinSub");
+  const loseSub = document.getElementById("eldLoseSub");
+  if (winSub) winSub.textContent = lang === "en" ? `Final score: ${score} / ${selectedQuestions.length}` : `Score final : ${score} / ${selectedQuestions.length}`;
+  if (loseSub) loseSub.textContent = lang === "en" ? `Final score: ${score} / ${selectedQuestions.length}` : `Score final : ${score} / ${selectedQuestions.length}`;
+
+  // toggle button label
+  langBtn.textContent = lang === "en" ? "🇬🇧 English" : "🇫🇷 Français";
+  localStorage.setItem("lang", lang);
+  currentLang = lang;
+}
+
+// toggle click
+langBtn.addEventListener("click", ()=>{
+  applyLang(currentLang === "en" ? "fr" : "en");
+});
+
+// storage event (update if changed in another tab)
+window.addEventListener("storage", (e)=>{
+  if (e.key === "lang") {
+    const newLang = e.newValue || "en";
+    applyLang(newLang);
+  }
+});
+
+/* --------------------------
+   QUESTION POOL (bilingual)
+   -------------------------- */
+const questionPool = [
+  {
+    q: { en: "Who led the French army to victory in Orléans?", fr: "Qui a mené l'armée française à la victoire à Orléans ?" },
+    options: {
+      en: ["Joan of Arc","Napoleon","Louis XIV","Marie Curie"],
+      fr: ["Jeanne d'Arc","Napoléon","Louis XIV","Marie Curie"]
+    },
+    answer: 0
+  },
+  {
+    q: { en: "In which year did the Battle of Waterloo occur?", fr: "En quelle année a eu lieu la bataille de Waterloo ?" },
+    options: { en: ["1815","1600","1789","1914"], fr: ["1815","1600","1789","1914"] },
+    answer: 0
+  },
+  {
+    q: { en: "Which king built the Palace of Versailles?", fr: "Quel roi a fait construire le château de Versailles ?" },
+    options: { en: ["Louis XIV","Louis XVI","Charles X","Napoleon III"], fr: ["Louis XIV","Louis XVI","Charles X","Napoléon III"] },
+    answer: 0
+  },
+  {
+    q: { en: "What ancient people lived in Gaul?", fr: "Quel peuple ancien vivait en Gaule ?" },
+    options: { en: ["The Gauls","The Romans","The Vikings","The Greeks"], fr: ["Les Gaulois","Les Romains","Les Vikings","Les Grecs"] },
+    answer: 0
+  },
+  {
+    q: { en: "What major event happened in France in 1968?", fr: "Quel événement majeur a eu lieu en France en 1968 ?" },
+    options: { en: ["Student Revolts","Russian Invasion","Monarchy Restored","Discovery of America"], fr: ["Révoltes étudiantes","Invasion russe","Rétablissement de la monarchie","Découverte de l'Amérique"] },
+    answer: 0
+  },
+  {
+    q: { en:"Who conquered Gaul in 52 BC?", fr:"Qui a conquis la Gaule en 52 av. J.-C. ?" },
+    options: { en:["Julius Caesar","Alexander the Great","Charlemagne","Vercingetorix"], fr:["Jules César","Alexandre le Grand","Charlemagne","Vercingétorix"] },
+    answer: 0
+  },
+  {
+    q: { en:"Which conflict lasted more than a century between England and France?", fr:"Quel conflit a duré plus d'un siècle entre l'Angleterre et la France ?" },
+    options: { en:["Hundred Years’ War","WW1","WW2","Napoleonic War"], fr:["La guerre de Cent Ans","PGM","SGM","Les guerres napoléoniennes"] },
+    answer: 0
+  }
+];
+
+/* pick 5 random questions */
+const selectedQuestions = questionPool.sort(() => 0.5 - Math.random()).slice(0,5);
+
+/* --------------------------
+   Boss definitions
+   -------------------------- */
+const bosses = [
+  {
+    id: "napoleon",
+    name: { en:"Napoleon", fr:"Napoléon" },
+    img: "image/napoleon_hero.jpg",
+    hpMax: 5,
+    desc: { en:"The Emperor — tactical genius.", fr:"L'Empereur — génie tactique." },
+    actionText: { en:"Quick strikes. Heavy morale.", fr:"Attaques rapides. Fort impact moral." }
+  },
+  {
+    id: "joan",
+    name: { en:"Joan of Arc", fr:"Jeanne d'Arc" },
+    img: "image/joan_hero.jpg",
+    hpMax: 4,
+    desc: { en:"The Warrior Saint — fierce and inspiring.", fr:"La sainte guerrière — féroce et inspirante." },
+    actionText: { en:"Rallies troops. Spiritual force.", fr:"Rassemble les troupes. Force spirituelle." }
+  },
+  {
+    id: "louis",
+    name: { en:"Louis XIV", fr:"Louis XIV" },
+    img: "image/louis14_hero.jpg",
+    hpMax: 6,
+    desc: { en:"The Sun King — glittering and commanding.", fr:"Le Roi-Soleil — imposant et brillant." },
+    actionText: { en:"Golden pomp — pressure and prestige.", fr:"Pompe dorée — pression et prestige." }
+  }
+];
+
+/* game state */
+let currentQuestion = 0;
+let lives = 3;
+let score = 0;
+let boss = null;
+let bossHp = 0;
+
+/* DOM refs */
+const qText = document.getElementById("questionText");
+const opts  = document.getElementById("options");
+const lifeDisplay = document.getElementById("lifeDisplay");
+const scoreText = document.getElementById("scoreText");
+
+const bossPortrait = document.getElementById("bossPortrait");
+const bossNameEl = document.getElementById("bossName");
+const bossHpList = document.getElementById("bossHpList");
+const bossTypeDetails = document.getElementById("bossTypeDetails");
+const bossActionText = document.getElementById("bossActionText");
+
+const finalWin = document.getElementById("finalWin");
+const finalLose = document.getElementById("finalLose");
+const finalWinText = document.getElementById("finalWinText");
+const finalLoseText = document.getElementById("finalLoseText");
+const finalWinDetails = document.getElementById("finalWinDetails");
+const finalLoseDetails = document.getElementById("finalLoseDetails");
+const restartWinBtn = document.getElementById("restartWinBtn");
+const restartLoseBtn = document.getElementById("restartLoseBtn");
+
+const eldOverlayLose = document.getElementById("eldOverlayLose");
+const eldOverlayWin = document.getElementById("eldOverlayWin");
+const eldLoseText = document.getElementById("eldLoseText");
+const eldWinText = document.getElementById("eldWinText");
+const eldLoseSub = document.getElementById("eldLoseSub");
+const eldWinSub = document.getElementById("eldWinSub");
+const eldRestartLose = document.getElementById("eldRestartLose");
+const eldRestartWin = document.getElementById("eldRestartWin");
+
+const hurtSound = document.getElementById("hurtSound");
+const bossHitSound = document.getElementById("bossHitSound");
+const victorySound = document.getElementById("victorySound");
+
+/* --------------------------
+   Helpers & rendering
+   -------------------------- */
+function pickRandomBoss(){
+  const b = bosses[Math.floor(Math.random()*bosses.length)];
+  return JSON.parse(JSON.stringify(b));
+}
+
+function renderBoss(){
+  if (!boss) return;
+  bossPortrait.src = boss.img;
+  bossPortrait.alt = boss.name[currentLang] || boss.name.en;
+  bossNameEl.textContent = boss.name[currentLang] || boss.name.en;
+  bossTypeDetails.textContent = boss.desc[currentLang] || boss.desc.en;
+  bossActionText.textContent = boss.actionText[currentLang] || boss.actionText.en;
+  renderBossHp();
+}
+
+function renderBossHp(){
+  bossHpList.innerHTML = "";
+  for(let i=0;i<boss.hpMax;i++){
+    const span = document.createElement("div");
+    span.className = "hp-item" + (i < bossHp ? " full" : "");
+    span.innerHTML = "❤";
+    bossHpList.appendChild(span);
+  }
+}
+
+function updateLivesDisplay(){
+  lifeDisplay.innerHTML = "";
+  for(let i=0;i<lives;i++){
+    const s = document.createElement("span");
+    s.className = "heart";
+    s.innerHTML = "❤️";
+    lifeDisplay.appendChild(s);
+  }
+  for(let i=0;i<3-lives;i++){
+    const s = document.createElement("span");
+    s.className = "heart";
+    s.innerHTML = "🖤";
+    lifeDisplay.appendChild(s);
+  }
+}
+
+function animateHeartDamage(){
+  const hearts = document.querySelectorAll(".heart");
+  hearts.forEach(h => h.classList.remove("shake"));
+  hearts.forEach(h => h.classList.add("shake"));
+  setTimeout(()=> hearts.forEach(h=>h.classList.remove("shake")), 600);
+}
+
+function animateBossHurt(){
+  bossPortrait.style.transform = "translateY(-6px) scale(1.02)";
+  setTimeout(()=> bossPortrait.style.transform = "", 150);
+  bossHitSound.currentTime = 0;
+  bossHitSound.play();
+}
+
+/* --------------------------
+   Game logic
+   -------------------------- */
+function startGame(){
+  currentQuestion = 0;
+  lives = 3;
+  score = 0;
+
+  boss = pickRandomBoss();
+  bossHp = boss.hpMax;
+
+  // ensure UI visible
+  document.getElementById("quizBox").style.display = "block";
+  finalWin.style.display = "none";
+  finalLose.style.display = "none";
+  eldOverlayLose.style.display = "none";
+  eldOverlayWin.style.display = "none";
+
+  renderBoss();
+  updateLivesDisplay();
+  updateScoreText();
+  loadQuestion();
+}
+
+function updateScoreText(){
+  scoreText.textContent = (currentLang === "en" ? "Score: " : "Score : ") + score;
+}
+
+function loadQuestion() {
+  const q = selectedQuestions[currentQuestion];
+  if (!q) {
+    showResults();
+    return;
+  }
+
+  qText.textContent = q.q[currentLang] || q.q.en;
+  opts.innerHTML = "";
+
+  // --- RANDOMIZE OPTIONS ---
+  const optionList = q.options[currentLang].map((opt, index) => ({
+    text: opt,
+    isCorrect: index === q.answer
+  }));
+
+  // shuffle array
+  for (let i = optionList.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [optionList[i], optionList[j]] = [optionList[j], optionList[i]];
+  }
+
+  // display randomized options
+  optionList.forEach(optObj => {
+    const btn = document.createElement("button");
+    btn.className = "option";
+    btn.textContent = optObj.text;
+    btn.onclick = () => handleAnswer(optObj.isCorrect ? q.answer : -999);
+    opts.appendChild(btn);
+  });
+}
+
+
+/* answer handler */
+function handleAnswer(selected){
+  const correct = selectedQuestions[currentQuestion].answer;
+  if(selected === correct){
+    // correct: damage boss
+    bossHp = Math.max(0, bossHp - 1);
+    score++;
+    animateBossHurt();
+    renderBossHp();
+    updateScoreText();
+
+    // check boss death
+    if(bossHp <= 0){
+      showWin();
+      return;
+    }
+
+    // next question
+    currentQuestion++;
+    if(currentQuestion >= selectedQuestions.length){
+      showResults();
+      return;
+    }
+    loadQuestion();
+
+  } else {
+    // wrong: player takes damage
+    lives = Math.max(0, lives - 1);
+    hurtSound.currentTime = 0;
+    hurtSound.play();
+    updateLivesDisplay();
+    animateHeartDamage();
+
+    // boss reacts
+    setTimeout(()=> {
+      bossHitSound.currentTime = 0;
+      bossHitSound.play();
+    }, 150);
+
+    if(lives <= 0){
+      showLose();
+      return;
+    }
+  }
+}
+
+/* showResults if questions exhausted */
+function showResults(){
+  // if bossHp <= half => win, else lose (you can adjust)
+  if(bossHp <= Math.floor(boss.hpMax/2)){
+    showWin();
+  } else {
+    showLose();
+  }
+}
+
+/* show win - Elden overlay + details + restart */
+function showWin(){
+  // small final box (inside quiz)
+  finalWin.style.display = "block";
+  finalWinText.textContent = currentLang === "en" ? "YOU WON!" : "VOUS AVEZ GAGNÉ !";
+  finalWinDetails.textContent = (currentLang === "en"
+    ? `Final score: ${score} / ${selectedQuestions.length}. You defeated ${boss.name.en}.`
+    : `Score final : ${score} / ${selectedQuestions.length}. Vous avez vaincu ${boss.name.fr}.`);
+
+  // Elden overlay
+  eldWinText.textContent = currentLang === "en" ? "YOU WON" : "VOUS AVEZ GAGNÉ";
+  eldWinSub.textContent = currentLang === "en" ? `Final score: ${score} / ${selectedQuestions.length}` : `Score final : ${score} / ${selectedQuestions.length}`;
+  eldOverlayWin.style.display = "flex";
+
+  // show restart handlers
+  restartWinBtn.onclick = ()=> location.reload();
+  restartLoseBtn.onclick = ()=> location.reload();
+  eldRestartWin.onclick = ()=> location.reload();
+
+  // hide base question area so overlay is clean
+  document.getElementById("quizBox").style.display = "none";
+
+  // play victory sound
+  victorySound.currentTime = 0;
+  victorySound.play();
+}
+
+/* show lose - Elden overlay + details + restart */
+function showLose(){
+  finalLose.style.display = "block";
+  finalLoseText.textContent = currentLang === "en" ? "YOU DIED" : "VOUS ÊTES MORT";
+  finalLoseDetails.textContent = (currentLang === "en"
+    ? `Final score: ${score} / ${selectedQuestions.length}. ${boss.name.en} remains with ${bossHp} HP.`
+    : `Score final : ${score} / ${selectedQuestions.length}. ${boss.name.fr} a encore ${bossHp} PV.`);
+
+  eldLoseText.textContent = currentLang === "en" ? "YOU DIED" : "VOUS ÊTES MORT";
+  eldLoseSub.textContent = currentLang === "en" ? `Final score: ${score} / ${selectedQuestions.length}` : `Score final : ${score} / ${selectedQuestions.length}`;
+  eldOverlayLose.style.display = "flex";
+
+  // restart handlers
+  restartWinBtn.onclick = ()=> location.reload();
+  restartLoseBtn.onclick = ()=> location.reload();
+  eldRestartLose.onclick = ()=> location.reload();
+
+  document.getElementById("quizBox").style.display = "none";
+}
+
+/* --------------------------
+   Start game and initialize UI
+   -------------------------- */
+applyLang(currentLang); // ensure labels set before UI
+startGame();
+
+</script>
+<footer>
+    <p><a href="index.html" style="color:#f8f8f8;text-decoration:underline;">← Back to Home</a></p>
+  </footer>
+</body>
+</html>
+
