@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/jpg" href="image/logopbl.jpg">
+  <title>French History — A Journey Through Time</title>
+
+  <!-- Fonts -->
+   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <h2 class="logo" data-en="French History" data-fr="Histoire de France">French History</h2>
+
+      <ul class="nav-links">
+        <li><a href="#hero" class="active" data-en="Home" data-fr="Accueil">Home</a></li>
+        <li><a href="#timeline" data-en="Timeline" data-fr="Chronologie">Timeline</a></li>
+        <li><a href="#topics" data-en="Topics" data-fr="Sujets">Topics</a></li>
+        <li><a href="quiz.html" data-en="Quiz" data-fr="Quiz">Quiz</a></li>
+        <li><a href="about.html" data-en="About Us" data-fr="À propos">About Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== LANGUAGE TOGGLE ===== -->
+  <button id="lang-toggle">🇬🇧 English</button>
+
+  <!-- ===== HERO SECTION ===== -->
+  <header class="hero parallax" id="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <h1 data-en="Discover the Legacy of France"
+          data-fr="Découvrez l'héritage de la France">
+        Discover the Legacy of France
+      </h1>
+
+      <p data-en="From ancient Gaul to modern revolutions — explore the stories that shaped a nation."
+         data-fr="De la Gaule antique aux révolutions modernes — explorez les histoires qui ont façonné une nation.">
+        From ancient Gaul to modern revolutions — explore the stories that shaped a nation.
+      </p>
+
+      <a href="#timeline" class="cta-btn" 
+         data-en="Explore Timeline" 
+         data-fr="Explorer la chronologie">
+         Explore Timeline
+      </a>
+    </div>
+
+    <a href="#timeline" class="scroll-down"><span></span></a>
+  </header>
+
+  <!-- ===== TIMELINE ===== -->
+  <section class="timeline-slider" id="timeline">
+    <h1 data-en="Interactive Timeline of French History" 
+        data-fr="Chronologie interactive de l'histoire de France">
+        Interactive Timeline of French History
+    </h1>
+
+    <div class="slider-wrapper">
+      <div class="slider-track" id="sliderTrack">
+
+     <!-- 1 -->
+<div class="slide">
+  <div class="card">
+    <div class="front">
+      <img src="image/gaul.jpg" alt="">
+      <h3 data-en="52 BC — Conquest of Gaul" data-fr="52 av. J.-C. — Conquête de la Gaule">52 BC — Conquest of Gaul</h3>
+    </div>
+    <div class="back">
+      <p data-en="Julius Caesar defeats Vercingétorix, bringing Gaul into the Roman Empire."
+         data-fr="Jules César vainc Vercingétorix, intégrant la Gaule dans l'Empire romain.">
+         Julius Caesar defeats Vercingétorix, bringing Gaul into the Roman Empire.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- 2 -->
+<div class="slide">
+  <div class="card">
+    <div class="front">
+      <img src="image/joan_hero.jpg" alt="">
+      <h3 data-en="Hundred Years' War — Joan of Arc" data-fr="Guerre de Cent Ans — Jeanne d'Arc">Hundred Years' War — Joan of Arc</h3>
+    </div>
+    <div class="back">
+      <p data-en="Joan leads French forces to victory, shifting the course of the Hundred Years’ War."
+         data-fr="Jeanne d’Arc mène les forces françaises à la victoire, changeant le cours de la guerre de Cent Ans.">
+         Joan leads French forces to victory, shifting the course of the Hundred Years’ War.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- 3 -->
+<div class="slide">
+  <div class="card">
+    <div class="front">
+      <img src="image/renaissance_art.jpg" alt="">
+      <h3 data-en="The Renaissance & Humanism (16th Century)" data-fr="La Renaissance & l'humanisme (XVIe siècle)">The Renaissance & Humanism (16th Century)</h3>
+    </div>
+    <div class="back">
+      <p data-en="Humanism and artistic rebirth transformed French culture during the Renaissance."
+         data-fr="L'humanisme et la renaissance artistique transforment profondément la culture française.">
+         Humanism and artistic rebirth transformed French culture during the Renaissance.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- 4 -->
+<div class="slide">
+  <div class="card">
+    <div class="front">
+      <img src="image/louis14_portrait.jpg" alt="">
+      <h3 data-en="Louis XIV — The Sun King" data-fr="Louis XIV — Le Roi Soleil">Louis XIV — The Sun King</h3>
+    </div>
+    <div class="back">
+      <p data-en="Louis XIV established absolute monarchy and built the grand Palace of Versailles."
+         data-fr="Louis XIV établit la monarchie absolue et construit le somptueux château de Versailles.">
+         Louis XIV established absolute monarchy and built the grand Palace of Versailles.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- 5 -->
+<div class="slide">
+  <div class="card">
+    <div class="front">
+      <img src="image/napolean_potrait.jpg" alt="">
+      <h3 data-en="1815 — Napoleon & Waterloo" data-fr="1815 — Napoléon & Waterloo">1815 — Napoleon & Waterloo</h3>
+    </div>
+    <div class="back">
+      <p data-en="Napoleon’s defeat at Waterloo reshaped Europe and ended his empire."
+         data-fr="La défaite de Napoléon à Waterloo redéfinit l'Europe et met fin à son empire.">
+         Napoleon’s defeat at Waterloo reshaped Europe and ended his empire.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- 6 — Colonisation -->
+<div class="slide">
+  <div class="card">
+    <div class="front">
+      <img src="image/colonisation_hero.jpg" alt="">
+      <h3 data-en="French Colonisation & Decolonisation" data-fr="Colonisation et décolonisation françaises">
+        French Colonisation & Decolonisation
+      </h3>
+    </div>
+    <div class="back">
+      <p data-en="France built a vast colonial empire, which dissolved through 20th-century independence movements."
+         data-fr="La France bâtit un vaste empire colonial, qui se désintégra avec les mouvements d’indépendance du XXe siècle.">
+         France built a vast colonial empire, which dissolved through 20th-century independence movements.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- 7 — WW1 -->
+<div class="slide">
+  <div class="card">
+    <div class="front">
+      <img src="image/ww1_ruins.jpg" alt="">
+      <h3 data-en="France in World War I" data-fr="La France pendant la Première Guerre mondiale">
+        France in World War I
+      </h3>
+    </div>
+    <div class="back">
+      <p data-en="France endured trench warfare and heavy losses but emerged as a key Allied victor."
+         data-fr="La France subit la guerre des tranchées et de lourdes pertes, mais sort victorieuse parmi les Alliés.">
+         France endured trench warfare and heavy losses but emerged as a key Allied victor.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- 8 — WW2 -->
+<div class="slide">
+  <div class="card">
+    <div class="front">
+      <img src="image/ww2_resistance.jpg" alt="">
+      <h3 data-en="France in World War II" data-fr="La France pendant la Seconde Guerre mondiale">
+        France in World War II
+      </h3>
+    </div>
+    <div class="back">
+      <p data-en="France faced occupation, resistance movements, and eventual liberation in 1944."
+         data-fr="La France connaît l’occupation, la Résistance et la libération en 1944.">
+         France faced occupation, resistance movements, and eventual liberation in 1944.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- 9 — May 1968 Revolts -->
+<div class="slide">
+  <div class="card">
+    <div class="front">
+      <img src="image/may1968_poster.jpg" alt="">
+      <h3 data-en="May 1968 — Student Revolts" data-fr="Mai 1968 — Révoltes étudiantes">
+        May 1968 — Student Revolts
+      </h3>
+    </div>
+    <div class="back">
+      <p data-en="Students and workers launched mass protests demanding social and political change."
+         data-fr="Les étudiants et les ouvriers mènent des manifestations massives demandant des changements sociaux et politiques.">
+         Students and workers launched mass protests demanding social and political change.
+      </p>
+    </div>
+  </div>
+</div>
+</section>
+
+  <!-- ===== TOPICS SECTION ===== -->
+  <section class="cont" id="topics">
+    <h2 data-en="Explore Major Eras" data-fr="Explorer les grandes époques">Explore Major Eras</h2>
+
+    <ul>
+      <li><a href="topic_a.html" data-en="Ancient Gaul and the Roman Conquest" data-fr="La Gaule antique et la conquête romaine">Ancient Gaul and the Roman Conquest</a></li>
+      <li><a href="topic_b.html" data-en="The Middle Ages and Joan of Arc" data-fr="Le Moyen Âge et Jeanne d'Arc">The Middle Ages and Joan of Arc</a></li>
+      <li><a href="topic_c.html" data-en="The French Renaissance" data-fr="La Renaissance française">The French Renaissance</a></li>
+      <li><a href="topic_d.html" data-en="The Age of Absolutism — Louis XIV" data-fr="L'âge de l'absolutisme — Louis XIV">The Age of Absolutism — Louis XIV</a></li>
+      <li><a href="topic_e.html" data-en="Napoleon Bonaparte and His Empire" data-fr="Napoléon Bonaparte et son empire">Napoleon Bonaparte and His Empire</a></li>
+      <li><a href="topic_f.html" data-en="Colonial France and Global Influence" data-fr="La France coloniale et son influence mondiale">Colonial France and Global Influence</a></li>
+      <li><a href="topic_g.html" data-en="The Great War and Its Aftermath" data-fr="La Grande Guerre et ses conséquences">The Great War and Its Aftermath</a></li>
+      <li><a href="topic_h.html" data-en="France in WWII — Resistance & Liberation" data-fr="La France pendant la Seconde Guerre mondiale — Résistance et Libération">France in WWII — Resistance & Liberation</a></li>
+      <li><a href="topic_i.html" data-en="Modern France — Revolts of 1968" data-fr="La France moderne — Les révoltes de 1968">Modern France — Revolts of 1968</a></li>
+    </ul>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p data-en="© 2025 French History Project — Designed by Zangetsu"
+       data-fr="© 2025 Projet d'histoire française — Conçu par Zangetsu">
+       © 2025 French History Project — Designed by Zangetsu
+    </p>
+  </footer>
+
+  <!-- ===== JS (Updated & Optimized) ===== -->
+  <script>
+  /* LANGUAGE TOGGLE */
+  (function () {
+    const btn = document.getElementById('lang-toggle');
+    let currentLang = localStorage.getItem('site-lang') || 'en';
+
+    function applyLang(lang) {
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const txt = el.getAttribute(`data-${lang}`);
+        if (txt !== null) el.textContent = txt;
+      });
+      btn.textContent = lang === 'en' ? '🇬🇧 English' : '🇫🇷 Français';
+      localStorage.setItem('site-lang', lang);
+      currentLang = lang;
+    }
+
+    if (btn) {
+      btn.addEventListener('click', () => applyLang(currentLang === 'en' ? 'fr' : 'en'));
+      applyLang(currentLang);
+    }
+  })();
+
+  /* HERO PARALLAX */
+  (function () {
+    const hero = document.querySelector('.hero.parallax');
+    if (!hero) return;
+
+    hero.style.backgroundImage = "url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1400&q=80')";
+
+    let ticking = false;
+    function onScroll() {
+      if (window.innerWidth <= 768) {
+        hero.style.backgroundPosition = '';
+        return;
+      }
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const y = window.pageYOffset;
+          hero.style.backgroundPosition = `center ${y * 0.4}px`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+
+  /* SLIDER DUPLICATION (SAFE) */
+  (function () {
+    const track = document.getElementById('sliderTrack');
+    const wrapper = document.querySelector('.slider-wrapper');
+    if (!track || !wrapper) return;
+
+    const slides = Array.from(track.children);
+    const images = track.querySelectorAll('img');
+
+    const imagePromises = Array.from(images).map(img => {
+      return new Promise(resolve => {
+        if (img.complete) return resolve();
+        img.addEventListener('load', resolve);
+        img.addEventListener('error', resolve);
+      });
+    });
+
+    Promise.all(imagePromises).then(() => {
+      if (track.dataset.cloned !== 'true') {
+        slides.forEach(sl => {
+          const clone = sl.cloneNode(true);
+          clone.classList.add('clone');
+          track.appendChild(clone);
+        });
+        track.dataset.cloned = 'true';
+      }
+    });
+  })();
+
+  /* HIDE BROKEN IMAGES */
+  (function () {
+    document.querySelectorAll('img').forEach(img => {
+      img.addEventListener('error', () => {
+        img.style.background = 'linear-gradient(180deg,#e5dfd4,#f3eee4)';
+        img.style.objectFit = 'cover';
+      });
+    });
+  })();
+  // Animate timeline heading when it enters the screen
+(function () {
+  const heading = document.querySelector(".timeline-slider h1");
+
+  function checkVisibility() {
+    const rect = heading.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      heading.classList.add("visible");
+    } else {
+      heading.classList.remove("visible"); // allow repeat
+    }
+  }
+
+  window.addEventListener("scroll", checkVisibility);
+})();
+
+// Looping scroll animation for topic list items
+(function () {
+  const items = document.querySelectorAll(".cont li");
+
+  function animateTopics() {
+    items.forEach((item, index) => {
+      const rect = item.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 80) {
+        // fade in
+        item.classList.add("visible");
+        item.style.transitionDelay = `${index * 0.12}s`; // stagger
+      } else {
+        // fade out (allows replay)
+        item.classList.remove("visible");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", animateTopics);
+  animateTopics();
+})();
+
+
+
+  </script>
+
+
+</body>
+</html>
+
+
