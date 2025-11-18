@@ -609,6 +609,14 @@ img {
 }
 
 /* End of appended fixes. All original rules preserved above. */
+/* FIX — Topics not visible on mobile */
+@media (max-width: 768px) {
+  .cont li {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 
 
 
