@@ -409,6 +409,62 @@ body {
     width: 170px !important;
     height: auto;
 }
+/* -------------------------------------- */
+/* FINAL MOBILE FIXES — DO NOT REMOVE     */
+/* -------------------------------------- */
+
+/* Fix hero image cropping on mobile */
+@media (max-width: 480px) {
+
+  .hero,
+  .hero.parallax,
+  .hero-section {
+    background-position: center top !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    height: 70vh !important;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.25),
+      rgba(0,0,0,0.55)
+    ) !important;
+  }
+
+  /* Adjust hero text */
+  .hero-content h1 {
+    font-size: 28px !important;
+    line-height: 1.1 !important;
+    padding: 0 10px;
+  }
+
+  .hero-content p {
+    font-size: 15px !important;
+    padding: 0 14px !important;
+  }
+}
+
+/* Fix translation button overlapping Topics */
+@media (max-width: 480px) {
+  #lang-toggle {
+    top: 85px !important;     /* moved lower */
+    right: 14px !important;
+    padding: 7px 12px !important;
+    font-size: 13px !important;
+    z-index: 500 !important;
+    transform: scale(0.92);
+  }
+}
+
+/* Ensure navbar does not push toggle button */
+@media (max-width: 480px) {
+  .navbar {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+  }
+}
 
 
 
