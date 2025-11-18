@@ -409,62 +409,109 @@ body {
     width: 170px !important;
     height: auto;
 }
-/* -------------------------------------- */
-/* FINAL MOBILE FIXES — DO NOT REMOVE     */
-/* -------------------------------------- */
+/* ======================================================
+   APPEND-ONLY: Mobile hero + lang-toggle fixes
+   (Add this to the end of your CSS file — no deletions)
+   ====================================================== */
 
-/* Fix hero image cropping on mobile */
-@media (max-width: 480px) {
-
+/* Ensure hero/topic-hero/here.parallax behave better on narrow screens */
+@media (max-width: 768px) {
+  /* reduce hero height slightly so header + lang toggle don't overlap content */
+  .topic-hero,
   .hero,
-  .hero.parallax,
-  .hero-section {
-    background-position: center top !important;
-    background-size: contain !important;
+  .hero.parallax {
+    height: 80vh !important;
+    background-size: contain !important;       /* show whole image instead of cropping */
+    background-position: top center !important;
     background-repeat: no-repeat !important;
-    height: 70vh !important;
+    padding-top: 68px !important;              /* leave room for the sticky nav */
+    overflow: hidden !important;
   }
 
-  .hero-overlay {
-    background: linear-gradient(
-      to bottom,
-      rgba(0,0,0,0.25),
-      rgba(0,0,0,0.55)
-    ) !important;
+  /* force hero heading to scale down and wrap nicely */
+  .topic-hero h1,
+  .hero-content h1,
+  .hero h1 {
+    font-size: clamp(22px, 6.5vw, 34px) !important;
+    line-height: 1.12 !important;
+    padding: 0 12px !important;
+    word-break: break-word !important;
+    white-space: normal !important;
+    text-wrap: pretty !important;
   }
 
-  /* Adjust hero text */
-  .hero-content h1 {
-    font-size: 28px !important;
-    line-height: 1.1 !important;
-    padding: 0 10px;
-  }
-
-  .hero-content p {
+  /* slightly reduce subtitle / hero paragraph size */
+  .topic-hero p,
+  .hero-content p,
+  .hero p {
     font-size: 15px !important;
-    padding: 0 14px !important;
+    margin-top: 8px !important;
+    padding: 0 12px !important;
   }
-}
 
-/* Fix translation button overlapping Topics */
-@media (max-width: 480px) {
+  /* push the hero content down a little to avoid overlap with the lang-toggle */
+  .hero-content,
+  .topic-hero .hero-content {
+    margin-top: 14px !important;
+  }
+
+  /* Language toggle: make it smaller and keep it inside the safe area */
   #lang-toggle {
-    top: 85px !important;     /* moved lower */
-    right: 14px !important;
-    padding: 7px 12px !important;
+    top: 10px !important;
+    right: 10px !important;
+    padding: 7px 10px !important;
     font-size: 13px !important;
-    z-index: 500 !important;
-    transform: scale(0.92);
+    z-index: 999 !important;
+  }
+
+  /* if any translation label sits above the topics, ensure page content starts lower */
+  .cont, .topic-container {
+    padding-top: 18px !important;
+  }
+
+  /* Prevent any hero overlay text from overflowing into nav area */
+  .hero-overlay,
+  .topic-hero::after {
+    pointer-events: none !important;
   }
 }
 
-/* Ensure navbar does not push toggle button */
-@media (max-width: 480px) {
-  .navbar {
-    padding-top: 6px !important;
-    padding-bottom: 6px !important;
+/* Small screens with very narrow widths (extra safe) */
+@media (max-width: 420px) {
+  .topic-hero,
+  .hero,
+  .hero.parallax {
+    height: 75vh !important;
+    background-position: top center !important;
+  }
+
+  .topic-hero h1,
+  .hero h1,
+  .hero-content h1 {
+    font-size: 20px !important;
+    letter-spacing: 0 !important;
   }
 }
+
+/* If your hero text still overlaps because of very long titles, allow an explicit max-width */
+.topic-hero .hero-content,
+.hero .hero-content {
+  max-width: 92% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Extra: ensure small inline images in topic text don't push layout on mobile */
+.topic-container img,
+.topic-container .small-img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+}
+
+/* End of append-only fixes */
+
+
 
 
 
